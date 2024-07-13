@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>รายชื่อนักเรียน ระดับชั้นมัธยมศึกษาปีที่ 2 ห้อง 5</h1>
+        <input type="text" id="searchInput" placeholder="ค้นหาข้อมูลนักเรียน...">
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>เลขที่</th>
+                    <th>คำนำหน้า</th>
+                    <th>ชื่อ-นามสกุล</th>
+                    <th>เกรด</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be dynamically populated here -->
+            </tbody>
+        </table>
+
+        <div id="paging-section">
+            <label>Data</label>
+            <select id="dataPerPage">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+            </select>
+
+            <label style="margin-left:10px;">Per Page</label>
+
+            <div id="pagination">
+                <button id="prevPage">ย้อนกลับ</button>
+                <span id="pageNumbers"></span>
+                <button id="nextPage">ถัดไป</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>แก้ไขข้อมูลนักเรียน</h2>
+            <form id="editForm">
+                <input type="hidden" id="editNumber">
+                <label for="editPrefix">คำนำหน้า:</label>
+                <input type="text" id="editPrefix">
+                <label for="editName">ชื่อ-นามสกุล:</label>
+                <input type="text" id="editName">
+                <label for="editGrade">เกรด:</label>
+                <input type="text" id="editGrade">
+                <button type="submit">บันทึก</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>คุณต้องการลบข้อมูลนักเรียนหรือไม่ ?</ส>
+                <div class="modal-buttons">
+                    <button id="cancelDelete">ยกเลิก</button>
+                    <button id="confirmDelete">ตกลง</button>
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
